@@ -46,3 +46,7 @@ export const schema = z.object({
   ]),
   links: z.array(linkSchema),
 })
+
+export type ILinkConfig = z.infer<typeof schema>
+export type IThemeOptions = z.infer<typeof themeSchema>
+export type ILink = z.infer<typeof linkSchema>
