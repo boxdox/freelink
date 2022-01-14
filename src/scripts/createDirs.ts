@@ -31,4 +31,4 @@ export const createDirs = async () => {
   return { srcDir, dataDir, assetsDir, themesDir, resourcesDir, distDir }
 }
 
-export type Directories = ReturnType<typeof createDirs>
+export type Directories = Awaited<ReturnType<typeof createDirs>>
