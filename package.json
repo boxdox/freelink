@@ -2,18 +2,18 @@
   "name": "freelink",
   "description": "",
   "version": "0.0.1",
-  "main": "index.js",
   "repository": "an open source, very easy to use alternative to linktree, powered by netlify cms",
   "author": "boxdox",
   "license": "MIT",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "clean": "rimraf dist resources .cache",
+    "clean": "rimraf dist resources .cache .parcel-cache",
     "dev": "nodemon src/index.ts",
     "dev:debug": "nodemon --inspect src/index.ts",
     "build": "npm run clean && ts-node src/index.ts"
   },
   "devDependencies": {
+    "@parcel/config-default": "^2.2.0",
+    "@parcel/core": "^2.2.0",
     "@types/fs-extra": "^9.0.13",
     "@types/node": "^17.0.8",
     "@types/prettier": "^2.4.3",
