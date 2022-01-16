@@ -30,10 +30,11 @@ export class Validator {
    */
   async #verifyThemeExists(theme: string) {
     try {
-      const themeName = theme + '.css'
-      return (await pathExists(this.#themesDir + sep + themeName))
-        ? themeName
-        : null
+      const themePath = this.#themesDir + sep + theme + '.css'
+      if (await pathExists(themePath)) {
+        return await readFile(themePath, 'utf8')
+      }
+      return null
     } catch (e) {
       return null
     }
@@ -59,17 +60,17 @@ export class Validator {
       const validated = await this.#validateSchema(content)
 
       // return the theme location if exists
-      let themeLocation: string | null = null
+      let themeData: string | null = null
       if (typeof validated.theme === 'string') {
-        themeLocation = await this.#verifyThemeExists(validated.theme)
-        if (themeLocation === null) {
+        themeData = await this.#verifyThemeExists(validated.theme)
+        if (themeData === null) {
           console.warn(
             `Theme ${validated.theme} not found, using default theme`
           )
         }
       }
 
-      return { config: validated, theme: themeLocation }
+      return { config: validated, theme: themeData }
     } catch (e) {
       throw new Error(
         `Couldn't read file ${file}, please check if the format is correct \n ${e}`
