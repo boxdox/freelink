@@ -1,4 +1,4 @@
-import { access, constants, copy, ensureDir } from 'fs-extra'
+import { access, constants, ensureDir } from 'fs-extra'
 import { dirname, join } from 'path'
 
 const getRootDir = async () => {
@@ -18,7 +18,6 @@ export const createDirs = async () => {
 
   const srcDir = join(rootDir, 'src')
   const dataDir = join(rootDir, 'src', 'data')
-  const assetsDir = join(rootDir, 'src', 'assets')
   const templatesDir = join(rootDir, 'src', 'templates')
   const themesDir = join(rootDir, 'src', 'themes')
   const resourcesDir = join(rootDir, 'resources')
@@ -27,15 +26,9 @@ export const createDirs = async () => {
   await ensureDir(resourcesDir)
   await ensureDir(distDir)
 
-  await copy(assetsDir, join(resourcesDir, 'assets'), { recursive: true })
-  await copy(themesDir, join(resourcesDir, 'assets'), {
-    recursive: true,
-  })
-
   return {
     srcDir,
     dataDir,
-    assetsDir,
     themesDir,
     templatesDir,
     resourcesDir,
