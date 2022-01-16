@@ -1,0 +1,90 @@
+:root {
+  --font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+
+  /* ui styling */
+  --container-max-width: 680px;
+  --container-padding: 2rem 0;
+
+  /* profile image styling */
+  --profile-image-size: 6rem;
+  --icon-image-size: 2rem;
+  --gap: 1rem;
+
+  /* links styling */
+  --list-item-color: #39e09b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: var(--font-family);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--container-padding);
+  width: 100%;
+  border: 1px solid;
+}
+
+img {
+  --size: var(--profile-image-size, 6rem);
+  width: var(--size);
+  height: var(--size);
+  display: block;
+  object-fit: contain;
+}
+
+img.profile-img {
+  border-radius: 50%;
+  margin: var(--gap) 0;
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap);
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  border: 2px solid transparent;
+  background: var(--list-item-color);
+  color: #fff;
+  width: 100%;
+  padding: 0.5rem 2rem;
+  text-decoration: none;
+  transition: background 150ms cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.link p {
+  text-align: center;
+}
+
+.link img {
+  --size: var(--icon-image-size);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.link:hover {
+  background: transparent;
+  color: var(--list-item-color);
+  border-color: var(--list-item-color);
+  cursor: pointer;
+}

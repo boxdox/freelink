@@ -30,8 +30,10 @@ export class Validator {
    */
   async #verifyThemeExists(theme: string) {
     try {
-      const themeLocation = this.#themesDir + sep + theme + '.css'
-      return (await pathExists(themeLocation)) ? themeLocation : null
+      const themeName = theme + '.css'
+      return (await pathExists(this.#themesDir + sep + themeName))
+        ? themeName
+        : null
     } catch (e) {
       return null
     }

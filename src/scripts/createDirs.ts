@@ -19,6 +19,7 @@ export const createDirs = async () => {
   const srcDir = join(rootDir, 'src')
   const dataDir = join(rootDir, 'src', 'data')
   const assetsDir = join(rootDir, 'src', 'assets')
+  const templatesDir = join(rootDir, 'src', 'templates')
   const themesDir = join(rootDir, 'src', 'themes')
   const resourcesDir = join(rootDir, 'resources')
   const distDir = join(rootDir, 'dist')
@@ -27,8 +28,19 @@ export const createDirs = async () => {
   await ensureDir(distDir)
 
   await copy(assetsDir, join(resourcesDir, 'assets'), { recursive: true })
+  await copy(themesDir, join(resourcesDir, 'assets'), {
+    recursive: true,
+  })
 
-  return { srcDir, dataDir, assetsDir, themesDir, resourcesDir, distDir }
+  return {
+    srcDir,
+    dataDir,
+    assetsDir,
+    themesDir,
+    templatesDir,
+    resourcesDir,
+    distDir,
+  }
 }
 
 export type Directories = Awaited<ReturnType<typeof createDirs>>

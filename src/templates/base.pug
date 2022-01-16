@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+  head
+    title #{title} — freelink
+    link(rel="stylesheet", href="https://unpkg.com/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css")
+    link(rel="stylesheet", href="https://unpkg.com/@fortawesome/fontawesome-free@5.15.4/css/brands.min.css")
+    link(rel="stylesheet", href="assets/style.css")
+    if theme
+      link(rel="stylesheet", href=`assets/${theme}`)
+  body
+    div(class="container")
+      h1 #{title}
+      if tagline
+        h2 #{tagline}
+      img(src=`${profilePicture || "https://avatars.dicebear.com/api/personas/.svg"}` class="profile-img" alt="profile picture")
+
+      div(class="links")
+        each link in links
+          a(class="link" href=`${link.url}` target="_blank" rel="noopener noreferrer")
+            if link.icon
+              i(class=`fab fa-${link.icon}`)
+            p #{link.name}
