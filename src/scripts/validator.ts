@@ -1,5 +1,5 @@
 import { pathExists, readdir, readFile } from 'fs-extra'
-import { sep } from 'path'
+import { join } from 'path'
 
 import { schema, ILinkConfig } from '../utils/schema'
 import type { Directories } from './createDirs'
@@ -30,9 +30,10 @@ export class Validator {
    */
   async #verifyThemeExists(theme: string) {
     try {
-      const themePath = this.#themesDir + sep + theme + '.css'
+      const themeName = theme + '.css'
+      const themePath = join(this.#themesDir, themeName)
       if (await pathExists(themePath)) {
-        return await readFile(themePath, 'utf8')
+        return themeName
       }
       return null
     } catch (e) {
@@ -47,7 +48,7 @@ export class Validator {
     const files = await readdir(this.#dataDir)
     return files
       .filter(name => name.endsWith('.json'))
-      .map(name => this.#dataDir + sep + name)
+      .map(name => join(this.#dataDir, name))
   }
 
   /**

@@ -4,10 +4,9 @@ html(lang="en")
     title #{title} — freelink
     link(rel="stylesheet", href="https://unpkg.com/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css")
     link(rel="stylesheet", href="https://unpkg.com/@fortawesome/fontawesome-free@5.15.4/css/brands.min.css")
-    style
-      include ../themes/style.css
-      if theme
-        | !{theme}
+    link(rel="stylesheet", href="./assets/style.css")
+    if theme
+      link(rel="stylesheet", href=`./themes/${theme}`)
   body
     div(class="container")
       h1 #{title}
