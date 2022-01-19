@@ -5,14 +5,28 @@
   /* ui styling */
   --container-max-width: 680px;
   --container-padding: 2rem 0;
+  --text-size: 1rem;
+  --text-size-sm: 0.875rem;
+
+  /* heading styles */
+  --heading-text-color: #222;
+  --heading1-text-size: 2rem;
+  --heading1-text-size-sm: 1.5rem;
+  --heading2-text-size: 1.5rem;
+  --heading2-text-size-sm: 1.25rem;
 
   /* profile image styling */
   --profile-image-size: 6rem;
-  --icon-image-size: 2rem;
-  --gap: 1rem;
+  --profile-image-size-sm: 5rem;
+  --profile-image-gap: 2rem;
 
   /* links styling */
-  --list-item-color: #39e09b;
+  --link-item-color: #39e09b;
+  --link-gap: 1rem;
+  --link-icon-size: calc(var(--text-size) * 1.25);
+  --link-icon-size-sm: calc(var(--text-size-sm) * 1.25);
+  --link-padding: 0.75rem 2rem;
+  --link-padding-sm: 0.5rem 1rem;
 }
 
 * {
@@ -32,14 +46,18 @@ body {
   flex-direction: column;
   align-items: center;
   max-width: var(--container-max-width);
+  width: 100%;
   margin: 0 auto;
   padding: var(--container-padding);
-  width: 100%;
-  border: 1px solid;
+  font-size: var(--text-size-sm);
+}
+
+h1, h2 {
+  color: var(--heading-text-color);
 }
 
 img {
-  --size: var(--profile-image-size, 6rem);
+  --size: var(--profile-image-size-sm);
   width: var(--size);
   height: var(--size);
   display: block;
@@ -48,7 +66,7 @@ img {
 
 img.profile-img {
   border-radius: 50%;
-  margin: var(--gap) 0;
+  margin: var(--profile-image-gap) 0;
 }
 
 .links {
@@ -56,17 +74,16 @@ img.profile-img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--gap);
+  gap: var(--link-gap);
 }
 
 .link {
   position: relative;
-  display: inline-block;
   border: 2px solid transparent;
-  background: var(--list-item-color);
+  background: var(--link-item-color);
   color: #fff;
   width: 100%;
-  padding: 0.5rem 2rem;
+  padding: var(--link-padding-sm);
   text-decoration: none;
   transition: background 150ms cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
@@ -75,16 +92,31 @@ img.profile-img {
   text-align: center;
 }
 
-.link img {
-  --size: var(--icon-image-size);
+.link i {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  font-size: var(--link-icon-size-sm);
 }
 
 .link:hover {
   background: transparent;
-  color: var(--list-item-color);
-  border-color: var(--list-item-color);
+  color: var(--link-item-color);
+  border-color: var(--link-item-color);
   cursor: pointer;
+}
+
+@media screen and (min-width: 480px) {
+  .container {
+    font-size: var(--text-size);
+  }
+  img {
+    --size: var(--profile-image-size);
+  }
+  .link {
+    padding: var(--link-padding);
+  }
+  .link i {
+    font-size: var(--link-icon-size);
+  }
 }
