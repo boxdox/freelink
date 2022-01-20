@@ -1,0 +1,20 @@
+{
+  "title": "boxdox's links",
+  "tagline": "i code stuff",
+  "slug": "boxdox",
+  "main": true,
+  "profilePicture": "https://avatars.dicebear.com/api/personas/boxdox.svg",
+  "theme": "dracula",
+  "links": [
+    {
+      "name": "Github",
+      "url": "https://github.com/boxdox",
+      "icon": "github"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/vaibhav_kandwal",
+      "icon": "twitter"
+    }
+  ]
+}
