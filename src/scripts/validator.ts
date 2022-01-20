@@ -62,12 +62,10 @@ export class Validator {
 
       // return the theme location if exists
       let themeData: string | null = null
-      if (typeof validated.theme === 'string') {
+      if (validated.theme && typeof validated.theme === 'string') {
         themeData = await this.#verifyThemeExists(validated.theme)
         if (themeData === null) {
-          console.warn(
-            `Theme ${validated.theme} not found, using default theme`
-          )
+          console.warn(`Theme ${validated.theme} not found: ${file}`)
         }
       }
 

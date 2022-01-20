@@ -1,0 +1,22 @@
+/* dracula theme, colors taken from https://draculatheme.com/contribute */
+
+:root {
+  --body-bg: #282a36;
+
+  /* heading styles */
+  --heading-text-color: #f8f8f2;
+
+  /* profile image styling */
+  --profile-image-size: 8rem;
+  --profile-image-size-sm: 6rem;
+  --profile-image-gap: 2rem 0;
+  --profile-image-border: 0.25rem solid #44475a;
+
+  /* links styling */
+  --link-bg: #bd93f9;
+  --link-gap: 1.25rem;
+}
+
+.link:nth-child(even) {
+  --link-bg: #ff79c6;
+}

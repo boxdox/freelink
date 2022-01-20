@@ -1,8 +1,10 @@
 :root {
   --font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
     segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+  --body-bg: transparent;
 
   /* ui styling */
+  --container-bg: transparent;
   --container-max-width: 680px;
   --container-padding: 2rem 0;
   --text-size: 1rem;
@@ -18,10 +20,11 @@
   /* profile image styling */
   --profile-image-size: 6rem;
   --profile-image-size-sm: 5rem;
-  --profile-image-gap: 2rem;
+  --profile-image-border: none;
+  --profile-image-gap: 2rem 0;
 
   /* links styling */
-  --link-item-color: #39e09b;
+  --link-bg: #39e09b;
   --link-gap: 1rem;
   --link-icon-size: calc(var(--text-size) * 1.25);
   --link-icon-size-sm: calc(var(--text-size-sm) * 1.25);
@@ -38,6 +41,7 @@
 body {
   width: 100vw;
   height: 100vh;
+  background: var(--body-bg);
   font-family: var(--font-family);
 }
 
@@ -48,6 +52,7 @@ body {
   max-width: var(--container-max-width);
   width: 100%;
   margin: 0 auto;
+  background: var(--container-bg);
   padding: var(--container-padding);
   font-size: var(--text-size-sm);
 }
@@ -56,17 +61,15 @@ h1, h2 {
   color: var(--heading-text-color);
 }
 
-img {
+.profile-img {
   --size: var(--profile-image-size-sm);
   width: var(--size);
   height: var(--size);
   display: block;
   object-fit: contain;
-}
-
-img.profile-img {
   border-radius: 50%;
-  margin: var(--profile-image-gap) 0;
+  border: var(--profile-image-border);
+  margin: var(--profile-image-gap);
 }
 
 .links {
@@ -80,7 +83,7 @@ img.profile-img {
 .link {
   position: relative;
   border: 2px solid transparent;
-  background: var(--link-item-color);
+  background: var(--link-bg);
   color: #fff;
   width: 100%;
   padding: var(--link-padding-sm);
@@ -101,8 +104,8 @@ img.profile-img {
 
 .link:hover {
   background: transparent;
-  color: var(--link-item-color);
-  border-color: var(--link-item-color);
+  color: var(--link-bg);
+  border-color: var(--link-bg);
   cursor: pointer;
 }
 
@@ -110,7 +113,7 @@ img.profile-img {
   .container {
     font-size: var(--text-size);
   }
-  img {
+  .profile-img {
     --size: var(--profile-image-size);
   }
   .link {
